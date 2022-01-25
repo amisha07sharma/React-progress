@@ -1,11 +1,8 @@
-import './App.css';
-import TableComponent from './Components/TableComponent';
-
-
+import React from "react";
 function App() {
   return (
-    <div className="App">
-      <TableComponent/>
+    <div>
+        RTL
     </div>
   );
 }
