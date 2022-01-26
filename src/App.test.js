@@ -24,4 +24,10 @@ describe("When everything is fine", () => {
     render(<App/>)
     screen.getByLabelText("Text :")
   })
+
+  test("should select an input element by its placeholder text",() => {
+    render(<App/>)
+    screen.getByPlaceholderText("text")
+  })
+
 });
