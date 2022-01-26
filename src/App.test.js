@@ -16,6 +16,12 @@ describe("When everything is fine", () => {
 
   test("should select the input element by its role", () => {
     render(<App/>)
-    screen.getByRole("textbox")
+    const a = screen.getByRole("textbox")
+    expect(a).toBeInTheDocument()
+  })
+
+  test("should select a label by its text",() => {
+    render(<App/>)
+    screen.getByLabelText("Text :")
   })
 });
