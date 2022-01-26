@@ -8,7 +8,7 @@ function App() {
   }
   return (
     <div>
-      <label htmlFor="search"></label>
+      <label htmlFor="search">Text :</label>
       <input id="search" type="text" value={text} onChange={changeHandler} />
     </div>
   );
