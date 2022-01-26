@@ -14,5 +14,8 @@ describe("When everything is fine", () => {
     expect(a).toBeInTheDocument();
   });
 
-
+  test("should select the input element by its role", () => {
+    render(<App/>)
+    screen.getByRole("textbox")
+  })
 });
