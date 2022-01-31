@@ -29,6 +29,7 @@ function App() {
       <div>{user ? user : null}</div>
       <label htmlFor="search">Text :</label>
       <input id="search" type="text" placeholder="text" value={text} onChange={changeHandler} />
+      <div>You typed : {text}</div>
     </div>
   );
 }

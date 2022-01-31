@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import App from './App';
 import '@testing-library/jest-dom'
 import {getUser} from "./Components/getUser";
@@ -62,7 +62,16 @@ describe("when the component fetches the user successfully", () => {
       render(<App/>);
       const a = screen.queryByText("Kiran")
       expect(a).toBeNull();
-      const b = await screen.findByText(/user/)
+      const b = await screen.findByText("Amisha")
       expect(b).toBeInTheDocument();
     });
 });
+
+describe("when the user enters some text in the input element", () => {
+  test("should display the text on the screen", async () => {
+    render(<App/>);
+    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
+    fireEvent.change(screen.getByRole("textbox"), {target : {value : "Hello"}})
+    expect(screen.getByText(/You typed : Hello/)).toBeInTheDocument();
+  })
+})
