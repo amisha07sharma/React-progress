@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
+import userEvent from "@testing-library/user-event"
 import '@testing-library/jest-dom'
 import {getUser} from "./Components/getUser";
 import {mocked} from "ts-jest/utils";
@@ -71,7 +72,7 @@ describe("when the user enters some text in the input element", () => {
   test("should display the text on the screen", async () => {
     render(<App/>);
     await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
-    fireEvent.change(screen.getByRole("textbox"), {target : {value : "Hello"}})
+    userEvent.type(screen.getByRole("textbox"), "Hello")
     expect(screen.getByText(/You typed : Hello/)).toBeInTheDocument();
   })
 })
