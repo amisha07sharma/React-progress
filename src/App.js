@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getUser } from "./Components/getUser";
 
 // eslint-disable-next-line no-unused-expressions
 "use strict";
@@ -13,10 +14,6 @@ function App() {
 //--------------------------------------------------------------------
 
   const [user, setUser] = useState(null)
-
-  function getUser() {
-    return Promise.resolve({ id: "1", name: "Amisha" })
-  }
   
   useEffect(() => {
     async function test () {
