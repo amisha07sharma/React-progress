@@ -10,8 +10,14 @@ jest.mock("./Components/getUser");
 const mockedGetUser = mocked(getUser,false);
 describe("When everything is fine", () => {
  
-  test("should render App Component",() => {
+  beforeEach(async () => {
+    mockedGetUser.mockClear();
     render(<App/>);
+    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
+  })
+  test("should render App Component",async () => {
+    render(<App/>);
+    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
   });
 
   test("should select the children that is being passed to Label Tag", () => {
@@ -48,6 +54,6 @@ describe("when the component fetches the user successfully", () => {
     })
     test ("should call getUser once",async () => {
       render(<App/>);
-      await waitFor(() => expect(mockedGetUser).toBeCalledTimes(1));
+      await waitFor(() => expect(mockedGetUser).toHaveBeenCalledTimes(1));
     })
 })
