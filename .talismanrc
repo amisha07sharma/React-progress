@@ -11,3 +11,5 @@ fileignoreconfig:
   checksum: 0a28dea4365cbe601716499cb459ef32e26484a50920b616bbe62b5ebfafa100
 - filename: yarn.lock
   checksum: eb84a1763e116b084330e98ad746a1d406b02ac5fa303405217a60a0a969cb36
+- filename: package-lock.json
+  checksum: fe8033ade1a686b9d18691a9b3fb3982838a5bd199de8d01b786bbc1ea55d5c7

@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "jest": {
-    "testEnvironment": "jsdom",
+    "testEnvironment": "jest-environment-jsdom-sixteen",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts",
@@ -29,6 +29,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
     "jest-junit": "^13.0.0",
     "typescript": "~4.5.5"
   },
@@ -36,7 +37,7 @@
     "test:ci": "react-scripts test --ci --coverage --reporters=default --reporters=jest-junit",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "jest-junit": {

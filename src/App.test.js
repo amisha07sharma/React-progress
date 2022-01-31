@@ -5,31 +5,34 @@ import '@testing-library/jest-dom'
 
 describe("When everything is fine", () => {
 
-  beforeEach(() =>{
-    render(<App/>)
-  })
   test("should render App Component", () => {
+    render(<App/>)
   });
 
   test("should select the children that is being passed to Label Tag", () => {
+    render(<App/>)
     const a = screen.getByText("Text :")
     expect(a).toBeInTheDocument();
   });
 
   test("should select the input element by its role", () => {
+    render(<App/>)
     const a = screen.getByRole("textbox")
     expect(a).toBeInTheDocument()
   });
 
   test("should select a label by its text",() => {
+    render(<App/>)
     screen.getByLabelText("Text :")
   });
 
   test("should select an input element by its placeholder text",() => {
+    render(<App/>)
     screen.getByPlaceholderText("text")
   });
 
   test("should give null for whatever", () => {
+    render(<App/>)
     expect(screen.queryByRole("whatever")).toBeNull();
   })
 });
