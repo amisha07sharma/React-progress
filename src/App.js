@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
+import CustomInput from "./Components/customInput";
 import { getUser } from "./Components/getUser";
 
 // eslint-disable-next-line no-unused-expressions
 "use strict";
 function App() {
-
-  const [text, setText] = useState('')
-
-  function changeHandler(event) {
-    setText(event.target.value);
-  }
-
-//--------------------------------------------------------------------
 
   const [user, setUser] = useState(null)
   
@@ -27,9 +20,7 @@ function App() {
   return (
     <div>
       <div>{user ? user : null}</div>
-      <label htmlFor="search">Text :</label>
-      <input id="search" type="text" placeholder="text" value={text} onChange={changeHandler} />
-      <div>You typed : {text}</div>
+      <CustomInput/>
     </div>
   );
 }
