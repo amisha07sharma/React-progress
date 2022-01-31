@@ -7,12 +7,9 @@ import {mocked} from "ts-jest/utils";
 
 
 jest.mock("./Components/getUser");
-const mockedGetUser = mocked(getUser,true);
+const mockedGetUser = mocked(getUser,false);
 describe("When everything is fine", () => {
  
-  beforeEach(async () => {
-    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
-  })
   test("should render App Component",() => {
     render(<App/>);
   });
@@ -44,3 +41,13 @@ describe("When everything is fine", () => {
     expect(screen.queryByRole("whatever")).toBeNull();
   })
 });
+
+describe("when the component fetches the user successfully", () => {
+    beforeEach(() => {
+      mockedGetUser.mockClear();
+    })
+    test ("should call getUser once",async () => {
+      render(<App/>);
+      await waitFor(() => expect(mockedGetUser).toBeCalledTimes(1));
+    })
+})

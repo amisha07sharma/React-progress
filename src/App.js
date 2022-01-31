@@ -16,17 +16,17 @@ function App() {
   const [user, setUser] = useState(null)
   
   useEffect(() => {
-    async function test () {
+    async function fetchUser () {
       const user = await getUser();
-      setUser(user.name);  
+      setUser(user);  
     }
-    test()
+    fetchUser()
   }, []);
   
   console.log(global)
   return (
     <div>
-      <div>{user ? user : "not set"}</div>
+      <div>{user ? user : null}</div>
       <label htmlFor="search">Text :</label>
       <input id="search" type="text" placeholder="text" value={text} onChange={changeHandler} />
     </div>
