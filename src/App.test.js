@@ -1,12 +1,20 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 import '@testing-library/jest-dom'
+import {getUser} from "./Components/getUser";
+import {mocked} from "ts-jest/utils";
 
+
+jest.mock("./Components/getUser");
+const mockedGetUser = mocked(getUser,true);
 describe("When everything is fine", () => {
-
-  test("should render App Component", () => {
-    render(<App/>)
+ 
+  beforeEach(async () => {
+    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
+  })
+  test("should render App Component",() => {
+    render(<App/>);
   });
 
   test("should select the children that is being passed to Label Tag", () => {
