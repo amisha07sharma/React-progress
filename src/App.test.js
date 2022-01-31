@@ -12,8 +12,6 @@ describe("When everything is fine", () => {
  
   beforeEach(async () => {
     mockedGetUser.mockClear();
-    render(<App/>);
-    await waitFor(() => expect(mockedGetUser).toHaveBeenCalled());
   })
   test("should render App Component",async () => {
     render(<App/>);
@@ -55,5 +53,16 @@ describe("when the component fetches the user successfully", () => {
     test ("should call getUser once",async () => {
       render(<App/>);
       await waitFor(() => expect(mockedGetUser).toHaveBeenCalledTimes(1));
-    })
-})
+    });
+
+    test("should render the username passed", async () => {
+      mockedGetUser.mockImplementationOnce(() => {
+        Promise.resolve("Amisha")
+      });
+      render(<App/>);
+      const a = screen.queryByText("Kiran")
+      expect(a).toBeNull();
+      const b = await screen.findByText(/user/)
+      expect(b).toBeInTheDocument();
+    });
+});
