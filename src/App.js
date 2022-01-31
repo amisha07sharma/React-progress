@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+
+// eslint-disable-next-line no-unused-expressions
+"use strict";
 function App() {
 
   const [text, setText] = useState('')
@@ -23,7 +26,7 @@ function App() {
     test()
   }, []);
   
-  
+  console.log(global)
   return (
     <div>
       <div>{user ? user : "not set"}</div>
