@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CustomInput from "./Components/customInput";
+import CustomInput from "./Components/CustomInput";
 import { getUser } from "./Components/getUser";
 
 // eslint-disable-next-line no-unused-expressions
